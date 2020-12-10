@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "TEST_ENV": "yes"
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home({hoge}) {
+  console.log(hoge)
   return (
     <div className={styles.container}>
       <Head>
@@ -62,4 +63,15 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getStaticProps(context) {
+  if (!process.env.TEST_ENV) {
+    throw new Error('no env variable')
+  }
+  return {
+    props: {
+      hoge: "hoge"
+    }, // will be passed to the page component as props
+  }
 }
